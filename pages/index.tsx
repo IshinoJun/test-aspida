@@ -1,9 +1,14 @@
+import { useAspidaQuery } from '@aspida/react-query'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { apiClient } from '../utils/apiClient'
 
 const Home: NextPage = () => {
+  // body:{ offset: 0,limit: 10 } の型推論が効かない？
+  const test = useAspidaQuery(apiClient.test,'$post',{})
+
   return (
     <div className={styles.container}>
       <Head>
